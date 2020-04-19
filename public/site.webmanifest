@@ -1,0 +1,10 @@
+{
+	"name":"Critter Forecast - Animal Crossing New Horizons",
+	"short_name":"Critter Forecast",
+	"description": "Shows at a glance all critters currently available!",
+	"start_url":  "index.html",
+	"icons":[{"src":"/img/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/img/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],
+	"theme_color":"#f4edc1",
+	"background_color":"#def2d9",
+	"display":"standalone"
+}

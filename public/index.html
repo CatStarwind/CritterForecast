@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>Critter Forecast - ACNH</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Critter Forecast - Lists all currently available critters in Animal Crossing New Horizons!" />
+        <meta name="author" content="CatStarwind" />
+        <meta name="theme-color" content="#f4edc1" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Critter Forecast - ACNH" />
+        <meta property="og:description" content="Critter Forecast - Lists all currently available critters in Animal Crossing New Horizons!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://critterforecast.com" />
+        <meta property="og:image" content="https://critterforecast.com/img/favicon-32x32.png" />
+
+        <!-- Icons -->
+        <link rel="shortcut icon" href="/img/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="manifest" href="/site.webmanifest">
+        
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+        <script src="js/luxon.min.js" defer></script>
+        <script src="js/site.js" defer></script>
+        <script>
+            //Highway to the Time Zone
+            if (!localStorage.getItem("tz") || !localStorage.getItem("hemi")) {
+                //Ridin' into the Time Zone
+                localStorage.setItem("tz", Intl.DateTimeFormat().resolvedOptions().timeZone || "Etc/UTC");
+                localStorage.setItem("hemi", "North");
+                location.reload(); //LANA
+            };
+        </script>
+    </head>
+    <body>
+        <div class="dashboard">
+            <div class="datetime">
+                <div class="time">10:55<span> AM</span></div>
+                <hr />
+                <div class="date">June 11 <span>Tue.</span></div>
+            </div>
+            <div class="legend">
+                <div class="lastchanceMonth"><span>Leaving this month.</span></div>
+                <div class="lastchanceTime"><span>Leaving this time block.</span></div>
+            </div>
+        </div>
+        <div class="available">
+            <div class="critter">
+                <h2>Insect</h2>
+                <div class="timebar">
+                    <div class="timeframe morning" id="i_4-8">04:00-08:00</div>
+                    <div class="timeframe day" id="i_8-16">08:00-16:00</div>
+                    <div class="timeframe lateday" id="i_16-17">16:00-17:00</div>
+                    <div class="timeframe earlyevening" id="i_17-19">17:00-19:00</div>
+                    <div class="timeframe evening" id="i_19-22">19:00-22:00</div>
+                    <div class="timeframe night" id="i_22-4">22:00-04:00</div>
+                </div>
+                <table id="Insect">
+                    <thead>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Location</th>
+                        <th>Note</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="critter">
+                <h2>Fish</h2>
+                <div class="timebar">
+                    <div class="timeframe morning" id="f_4-9">04:00-09:00</div>
+                    <div class="timeframe day" id="f_9-16">09:00-16:00</div>
+                    <div class="timeframe evening" id="f_16-21">16:00-21:00</div>
+                    <div class="timeframe night" id="f_21-4">21:00-04:00</div>
+                </div>
+                <table id="Fish">
+                    <thead>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Location</th>
+                        <th>Note</th>
+                        <th title="Shadow Size">S</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="footer">&copy; 2020 - CatStarwind | Animal Crossing is property of Nintendo / Nook Inc.</div>
+    </body>
+    </html>

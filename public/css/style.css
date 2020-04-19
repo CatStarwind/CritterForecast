@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Varela+Round&display=swap');
+html {
+  font-size: 14px;
+  background: #DEF2D9;
+  background-image:
+    radial-gradient(#fff 20%, transparent 0),
+    radial-gradient(#fff 20%, transparent 0);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+body { font-family: 'Varela Round', sans-serif; text-align:center;}
+
+.dashboard {padding-top:1em; display: flex;  flex-wrap: wrap; justify-content: space-evenly; align-items: center; margin:auto; max-width:800px; }
+
+.legend { order:2; display:table; border-collapse: collapse; background-color:white;  margin-top:5px;}
+.legend div { display:table-row; }
+.legend span { display:table-cell; border: 1px solid lightgray; padding: 5px 10px; }
+.hemisphere {order:1; height:64px; width:64px; cursor: pointer; border-radius: 20px;}
+
+.available { display: flex;  flex-wrap: wrap; justify-content: center; }
+.critter {padding: 5px 10px;}
+.critter h2 {
+    color: #BA3B1F;
+    padding: 4px 16px;
+    background: #FF9A40;
+    border-radius: 20px;
+    margin: 2px 0;
+    text-align: center;
+}
+
+/* Time Bar */
+.timebar {
+    display: flex;
+    color: white;
+    margin: 2px 0;
+    font-size: 0.8em;
+}
+.timeframe {
+    text-align: center;
+    padding: 8px;
+    width: 100%;
+    border-radius: 20px;
+}
+.now {
+    box-shadow: 0px 0px 2px 5px lightgreen inset;
+    animation: pulse 2s infinite;
+    animation-timing-function: linear;
+}
+.morning { background-color: #783f04; }
+.day { background-color: #7f6000; }
+.lateday { background-color: #bf9000; }
+.earlyevening { background-color: #1c4587; }
+.evening { background-color: #073763; }
+.night { background-color: #20124d; }
+#i_4-8, #f_4-9, .tf_4-8 { background-color: #783f04;}
+#i_8-16, #f_9-16, .tf_8-16 { background-color: #7f6000; }
+#i_16-17, .tf_16-17 { background-color: #bf9000; }
+#i_17-19, .tf_17-19 { background-color: #1c4587; }
+#i_19-22, #f_16-21, .tf_19-22 { background-color: #073763; }
+#i_22-4, #f_21-4, .tf_22-4 { background-color: #20124d; }
+@keyframes pulse {
+  50% { box-shadow: 0 0 8px 5px #00ff00 inset; }
+}
+
+/* Available Table */
+table { border-collapse: collapse; background-color: white; width:100%;}
+th { color: white; background-color: black; font-weight: bold; text-align: left; padding: 3px 5px; border: 1px solid lightgray;}
+td { border: 1px solid lightgray; padding: 5px 10px; text-align:left;}
+
+td:nth-child(2) { text-align:right; }
+td:nth-child(5) { text-align:center; }
+
+tr.lastchanceTime, .lastchanceTime { background-color: gold; }
+tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#E45B5B }
+
+
+/* Clock */
+.datetime {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  border-radius: 30px;
+}
+.datetime hr {
+  margin: 0;
+  border-style: solid;
+}
+.time {
+  font-size: 2.5em;
+  letter-spacing: 2px;
+}
+.time span {
+  font-size:0.7em;
+  letter-spacing: 0px;
+}
+.date {
+  font-size: 1.5em;
+  margin-top: 7px;
+}
+.date span {
+  background-color: white;
+  border-radius: 15px;
+  padding: 2px 8px;
+}
+.date span.tf_4-8 { color: #783f04;}
+.date span.tf_8-16 { color: #7f6000; }
+.date span.tf_16-17 { color: #bf9000; }
+.date span.tf_17-19 { color: #1c4587; }
+.date span.tf_19-22 { color: #073763; }
+.date span.tf_22-4 { color: #20124d; }
+
+.footer {font-size:small;color:slategray;}
