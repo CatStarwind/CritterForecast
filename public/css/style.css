@@ -52,12 +52,6 @@ body { font-family: 'Varela Round', sans-serif; text-align:center;}
 .earlyevening { background-color: #1c4587; }
 .evening { background-color: #073763; }
 .night { background-color: #20124d; }
-#i_4-8, #f_4-9, .tf_4-8 { background-color: #783f04;}
-#i_8-16, #f_9-16, .tf_8-16 { background-color: #7f6000; }
-#i_16-17, .tf_16-17 { background-color: #bf9000; }
-#i_17-19, .tf_17-19 { background-color: #1c4587; }
-#i_19-22, #f_16-21, .tf_19-22 { background-color: #073763; }
-#i_22-4, #f_21-4, .tf_22-4 { background-color: #20124d; }
 @keyframes pulse {
   50% { box-shadow: 0 0 8px 5px #00ff00 inset; }
 }
@@ -73,16 +67,15 @@ td:nth-child(5) { text-align:center; }
 tr.lastchanceTime, .lastchanceTime { background-color: gold; }
 tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#E45B5B }
 
-
 /* Clock */
-.datetime {
+#acClock {
   text-align: center;
   color: white;
   font-weight: bold;
   padding: 0.5em 1em;
   border-radius: 30px;
 }
-.datetime hr {
+#acClock hr {
   margin: 0;
   border-style: solid;
 }
@@ -103,11 +96,11 @@ tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#E45B5B }
   border-radius: 15px;
   padding: 2px 8px;
 }
-.date span.tf_4-8 { color: #783f04;}
-.date span.tf_8-16 { color: #7f6000; }
-.date span.tf_16-17 { color: #bf9000; }
-.date span.tf_17-19 { color: #1c4587; }
-.date span.tf_19-22 { color: #073763; }
-.date span.tf_22-4 { color: #20124d; }
+span.morning { color: #783f04; }
+span.day { color: #7f6000; }
+span.lateday { color: #bf9000; }
+span.earlyevening { color: #1c4587; }
+span.evening { color: #073763; }
+span.night { color: #20124d; }
 
 .footer {font-size:small;color:slategray;}
