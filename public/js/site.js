@@ -1,7 +1,7 @@
 const insectTF = [[4,8],[8,16],[16,17],[17,19],[19,22],[22,4]];
 const fishTF = [[4,9],[9,16],[16,21],[21,4]];
 var curITF = [];
-const nameTF = {4:"Morning", 8:"Day", 9:"Day", 16:"Day", 17:"EarlyEvening", 19:"Evening"}
+const nameTF = {4:"Morning", 8:"Day", 9:"Day", 16:"Day", 17:"EarlyEvening", 19:"Evening"};
 
 let setCurrentTimeFrame = function(hour) {
 	let timeframes = document.getElementsByClassName("timeframe");
@@ -17,15 +17,15 @@ let setCurrentTimeFrame = function(hour) {
 			timeframe.classList.add("now");
 		}
 	}
-}
+};
 
 let setClock = function(dt) {
 	if(dt.toFormat("h:mma") !== $(".time").text()){
 		$(".time").html(dt.toFormat("h:mm") + `<span>${dt.toFormat("a")}</span>`);
-		$(".date").html(dt.toFormat("LLLL dd") + ` <span>${dt.toFormat("ccc")}</span>`);		
+		$(".date").html(dt.toFormat("LLLL dd") + ` <span>${dt.toFormat("ccc")}</span>`);
 		setClockTF(dt);
 	}	
-}
+};
 
 let setClockTF = function(dt){
 	//Clear
@@ -37,7 +37,7 @@ let setClockTF = function(dt){
 			$(".datetime, .date span").addClass(`tf_${tf[0]}-${tf[1]}`);
 		}
 	});
-}
+};
 
 let createTable = function(id){
 	let url = id.toLowerCase()+"?tz="+Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -57,7 +57,7 @@ let createTable = function(id){
 			$("#"+id).append($row);
 		});
 	});
-}
+};
 
 let setITF = function(hour ){
 	insectTF.forEach(tf => {
@@ -65,7 +65,7 @@ let setITF = function(hour ){
 			curITF = tf;
 		}
 	});
-}
+};
 
 let setHemi = function(hemi) {
 	$img = $("<img>")
@@ -76,12 +76,12 @@ let setHemi = function(hemi) {
 			title: hemi + " Hemisphere"
 		})
 		.appendTo(".dashboard");
-}
+};
 
 let changeHemi = function() {
 	localStorage.setItem("hemi", localStorage.getItem("hemi") === "North" ? "South" : "North");
 	location.reload();
-}
+};
 
 $(function() {
 	let dt = luxon.DateTime.local();	

@@ -13,11 +13,12 @@ const monthEnum = (hemi) => {
 		year.forEach((y,i) => year[i] = (i<6) ? y << 6 : y >> 6);
 	}
 	return year;
-}
+};
+
 const getTimeFrame = function(hour){
 	var inTimeFrame = (tf) => hour >= tf[0] && hour < tf[1] || (tf[0] > tf[1] && (hour >= tf[0] || hour < tf[1]));
 	return 2 ** timeframe.findIndex(inTimeFrame);
-}
+};
 
 router.get('/', function(req, res) {
 	let insect = [];
