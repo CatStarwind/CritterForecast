@@ -16,7 +16,7 @@ body { font-family: 'Varela Round', sans-serif; text-align:center;}
 .available { display: flex;  flex-wrap: wrap; justify-content: center; }
 .critter {padding: 5px 10px;}
 .critter h2 {
-    color: #BA3B1F;
+    color: #881900;
     padding: 4px 16px;
     background: #FF9A40;
     border-radius: 20px;
@@ -61,7 +61,7 @@ td:nth-child(2) { text-align:right; }
 td:nth-child(5) { text-align:center; }
 
 tr.lastchanceTime, .lastchanceTime { background-color: gold; }
-tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#E45B5B }
+tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#b50000; }
 
 /* Clock */
 #acClock {
