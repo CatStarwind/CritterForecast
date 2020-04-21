@@ -1,12 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Varela+Round&display=swap');
 html {
   font-size: 14px;
-  background: #DEF2D9;
-  background-image:
-    radial-gradient(#fff 20%, transparent 0),
-    radial-gradient(#fff 20%, transparent 0);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
+  background: #f3ebbd;
+  background-image: url("/img/critters.png");
 }
 body { font-family: 'Varela Round', sans-serif; text-align:center;}
 
