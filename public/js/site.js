@@ -47,7 +47,7 @@ const cf = {
 			$(".date").html(dt.toFormat("LLLL dd") + ` <span>${dt.toFormat("ccc")}</span>`);
 			
 			//Top of Hour Updates
-			if(dt.minute === 0);{
+			if (dt.minute === 0) {
 				//Clear & Set
 				$("#acClock, .date span").removeClass().addClass(timeframes.Insect.currentFrame(dt.hour).toLowerCase());
 
