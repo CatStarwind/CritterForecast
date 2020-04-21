@@ -42,14 +42,14 @@ const cf = {
 		}
 	},
 	updateClock: function(dt) {
-		if(dt.toFormat("h:mma") !== $(".time").text()){
-			$(".time").html(dt.toFormat("h:mm") + `<span>${dt.toFormat("a")}</span>`);
+		if(dt.toFormat("h:mm a") !== $(".time").text()){
+			$(".time").html(dt.toFormat("h:mm") + `<span> ${dt.toFormat("a")}</span>`);
 			$(".date").html(dt.toFormat("LLLL dd") + ` <span>${dt.toFormat("ccc")}</span>`);
 			
 			//Top of Hour Updates
 			if (dt.minute === 0) {
 				//Clear & Set
-				$("#acClock, .date span").removeClass().addClass(timeframes.Insect.currentFrame(dt.hour).toLowerCase());
+				$("#acClock").removeClass().addClass(timeframes.Insect.currentFrame(dt.hour).toLowerCase());
 
 				//Check if entering new Time Frame
 				for(let tf in timeframes) {
@@ -65,10 +65,9 @@ const cf = {
 		let id = "#" + critter;
 		let url = critter.toLowerCase()+"?tz="+Intl.DateTimeFormat().resolvedOptions().timeZone;	
 		url += "&hemi=" + localStorage.getItem("hemi");
-		//Reset
-		$("tbody", id).empty();
-
+		
 		$.getJSON(url, function(data){
+			$("tbody", id).empty(); //Reset
 			let header = [];
 			$('th', id).each((i, el) => header.push($(el).text()));
 	
@@ -106,12 +105,12 @@ const cf = {
 		this.setCurrentTimeFrame(dt.hour);
 		this.initHemi();
 		for(var tf in timeframes) { this.createTable(tf); }
+		$("#acClock").addClass(timeframes.Insect.currentFrame(dt.hour).toLowerCase()).attr("title", localStorage.getItem("tz"));
 	}
 };
 
 $(function() {
 	cf.init();
-	$(".datetime").attr("title", localStorage.getItem("tz"));
 	$(".hemisphere").click(cf.switchHemi);
 	
 	cf.tick = window.setInterval(function () {

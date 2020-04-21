@@ -92,11 +92,11 @@ tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#E45B5B }
   border-radius: 15px;
   padding: 2px 8px;
 }
-span.morning { color: #783f04; }
-span.day { color: #7f6000; }
-span.lateday { color: #bf9000; }
-span.earlyevening { color: #1c4587; }
-span.evening { color: #073763; }
-span.night { color: #20124d; }
+#acClock.morning .date span { color: #783f04; }
+#acClock.day .date span { color: #7f6000; }
+#acClock.lateday .date span { color: #bf9000; }
+#acClock.earlyevening .date span { color: #1c4587; }
+#acClock.evening .date span { color: #073763; }
+#acClock.night .date span { color: #20124d; }
 
 .footer {font-size:small;color:slategray;}
