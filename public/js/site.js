@@ -76,7 +76,7 @@ const cf = {
 				if (critter.TLC) { $row.addClass("lastchanceTime"); }
 				if (critter.MLC) { $row.addClass("lastchanceMonth"); }
 	
-				header.forEach(c => $("<td>").text(critter[c]).appendTo($row));
+				header.forEach(c => $("<td>").text(critter[c].toLocaleString()).appendTo($row));
 				$("table", id).append($row);
 			});
 		});
