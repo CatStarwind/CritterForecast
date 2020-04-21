@@ -21,6 +21,8 @@ const getTimeFrame = function(hour){
 };
 
 router.get('/', function(req, res) {
+	res.setHeader('Cache-Control', 'no-cache, no-store');
+	
 	let fish = [];
 	let dt = DateTime.utc();
 	let month = monthEnum(req.query.hemi);
