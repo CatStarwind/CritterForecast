@@ -58,7 +58,7 @@ th { color: white; background-color: black; font-weight: bold; text-align: left;
 td { border: 1px solid lightgray; padding: 5px 10px; text-align:left;}
 
 td:nth-child(2) { text-align:right; }
-td:nth-child(5), th:nth-child(5) { text-align: center; }
+td:nth-child(4), th:nth-child(4) { text-align: center; }
 
 tr.lastchanceTime, .lastchanceTime { background-color: gold; }
 tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#b50000; }

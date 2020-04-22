@@ -63,20 +63,23 @@ const cf = {
 	},
 	createTable: function (critter) {
 		let id = "#" + critter;
-		let url = critter.toLowerCase()+"?tz="+Intl.DateTimeFormat().resolvedOptions().timeZone;	
+		let url = critter.toLowerCase();
+		url += "?tz="+Intl.DateTimeFormat().resolvedOptions().timeZone;
 		url += "&hemi=" + localStorage.getItem("hemi");
 		
 		$.getJSON(url, function(data){
 			$("tbody", id).empty(); //Reset
-			let header = [];
-			$('th', id).each((i, el) => header.push($(el).text()));
-	
+
 			data.forEach(critter => {
 				let $row = $("<tr>");
 				if (critter.TLC) { $row.addClass("lastchanceTime"); }
 				if (critter.MLC) { $row.addClass("lastchanceMonth"); }
-	
-				header.forEach(c => $("<td>").text(critter[c].toLocaleString()).appendTo($row));
+
+				$("<td>").text(critter.Name).appendTo($row);
+				$("<td>").text(critter.Price.toLocaleString()).appendTo($row);
+				$("<td>").text(critter.Location + (critter.Note ? ` (${critter.Note})` : '')).appendTo($row);
+				if(critter.S) { $("<td>").text(critter.S).appendTo($row); }
+				
 				$("table", id).append($row);
 			});
 		});
