@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - API for critter availability.
 
+## [1.3.0]
+### Changed
+- Rounder Redesign
+- Merged Note into Location
+- Added locale formating to Price
+
+## [1.2.3]
+### Fixed
+- Browser no longer caches critter JSON.
+- Static files now set to cache.
+
 ## [1.2.2]
 ### Fixed
 - Day of Week now properly displays.
