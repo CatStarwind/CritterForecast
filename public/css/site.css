@@ -6,7 +6,7 @@ html {
 }
 body { font-family: 'Varela Round', sans-serif; text-align:center;}
 
-.dashboard {padding-top:1em; display: flex;  flex-wrap: wrap; justify-content: space-evenly; align-items: center; margin:auto; max-width:800px; }
+.dashboard { padding: 1em 0; display: flex;  flex-wrap: wrap; justify-content: space-evenly; align-items: center; margin:auto; max-width:800px; }
 
 .legend { order:2; display:table; margin-top: 5px; border-spacing: 0 2px; }
 .legend div { display:table-row; }
