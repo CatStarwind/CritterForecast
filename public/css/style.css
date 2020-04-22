@@ -105,4 +105,4 @@ tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#b50000; }
 #acClock.evening .date span { color: #073763; }
 #acClock.night .date span { color: #20124d; }
 
-.footer {font-size:small;color:slategray;}
+.footer { font-size:small;color:darkslategray;font-weight: bold; }
