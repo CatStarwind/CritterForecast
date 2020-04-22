@@ -8,27 +8,27 @@ body { font-family: 'Varela Round', sans-serif; text-align:center;}
 
 .dashboard {padding-top:1em; display: flex;  flex-wrap: wrap; justify-content: space-evenly; align-items: center; margin:auto; max-width:800px; }
 
-.legend { order:2; display:table; border-collapse: collapse; background-color:white;  margin-top:5px;}
+.legend { order:2; display:table; margin-top: 5px; border-spacing: 0 2px; }
 .legend div { display:table-row; }
-.legend span { display:table-cell; border: 1px solid lightgray; padding: 5px 10px; }
+.legend span { display:table-cell; border: 1px solid #f7cc64; border-radius: 15px; }
 .hemisphere {order:1; height:64px; width:64px; cursor: pointer; border-radius: 20px;}
 
 .available { display: flex;  flex-wrap: wrap; justify-content: center; }
 .critter {padding: 5px 10px;}
 .critter h2 {
-    color: #881900;
+    color: #4d5447;
     padding: 4px 16px;
-    background: #FF9A40;
+    background: #f7cc64;
     border-radius: 20px;
     margin: 2px 0;
     text-align: center;
+    letter-spacing: 2px;
 }
 
 /* Time Bar */
 .timebar {
     display: flex;
     color: white;
-    margin: 2px 0;
     font-size: 0.8em;
 }
 .timeframe {
@@ -44,7 +44,7 @@ body { font-family: 'Varela Round', sans-serif; text-align:center;}
 }
 .morning { background-color: #783f04; }
 .day { background-color: #7f6000; }
-.lateday { background-color: #bf9000; }
+.lateday { background-color: #696800; }
 .earlyevening { background-color: #1c4587; }
 .evening { background-color: #073763; }
 .night { background-color: #20124d; }
@@ -53,14 +53,20 @@ body { font-family: 'Varela Round', sans-serif; text-align:center;}
 }
 
 /* Available Table */
-table { border-collapse: collapse; background-color: white; width:100%;}
-th { color: white; background-color: black; font-weight: bold; text-align: left; padding: 3px 5px; border: 1px solid lightgray;}
-td { border: 1px solid lightgray; padding: 5px 10px; text-align:left;}
+table { width:100%; border-spacing: 0px 2px;}
+tbody tr, .legend div { background-color: #f4f8e2; }
+th, td, .legend span { padding: 5px 10px; }
+th { color: white; background-color: #5a5040; font-weight: bold; text-align: left; letter-spacing: 1px; }
+th:first-child, td:first-child { border-radius: 10px 0 0 10px; }
+th:last-child, td:last-child { border-radius: 0 10px 10px 0; }
+td { text-align: left; border-top: 1px solid #f7cc64; border-bottom: 1px solid #f7cc64; }
+td:first-child { border-left: 1px solid #f7cc64; }
+td:last-child { border-right: 1px solid #f7cc64; }
 
 td:nth-child(2) { text-align:right; }
 td:nth-child(4), th:nth-child(4) { text-align: center; }
 
-tr.lastchanceTime, .lastchanceTime { background-color: gold; }
+tr.lastchanceTime, div.lastchanceTime { background-color: gold; }
 tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#b50000; }
 
 /* Clock */
@@ -94,7 +100,7 @@ tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#b50000; }
 }
 #acClock.morning .date span { color: #783f04; }
 #acClock.day .date span { color: #7f6000; }
-#acClock.lateday .date span { color: #bf9000; }
+#acClock.lateday .date span { color: #696800; }
 #acClock.earlyevening .date span { color: #1c4587; }
 #acClock.evening .date span { color: #073763; }
 #acClock.night .date span { color: #20124d; }
