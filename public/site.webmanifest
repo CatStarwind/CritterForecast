@@ -1,45 +1,18 @@
 {
-    "name": "Critter Forecast",
+    "name": "Critter Forecast for Animal Crossing New Horizons",
     "short_name": "Critter Forecast",
-    "description": "Shows at a glance all critters currently available!",
+    "description": "At a glance display of all critters currently available!",
+    "start_url": "index.html",
     "display": "standalone",
+    "orientation": "portrait-primary",
     "theme_color": "#f3ebbd",
-    "background_color": "#f3ebbd",
+    "background_color": "#f7cc64",
     "icons": [
         {
-            "src": "/img/ico/android-chrome-36x36.png",
-            "sizes": "36x36",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/ico/android-chrome-48x48.png",
-            "sizes": "48x48",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/ico/android-chrome-72x72.png",
-            "sizes": "72x72",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/ico/android-chrome-96x96.png",
-            "sizes": "96x96",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/ico/android-chrome-144x144.png",
-            "sizes": "144x144",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/ico/android-chrome-192x192.png",
+            "src": "/img/logo.png",
             "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/img/ico/android-chrome-256x256.png",
-            "sizes": "256x256",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ]
 }
