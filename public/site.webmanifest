@@ -3,7 +3,7 @@
     "short_name": "Critter Forecast",
     "description": "At a glance display of all critters currently available!",
     "start_url": "index.html",
-    "display": "standalone",
+    "display": "fullscreen",
     "orientation": "portrait-primary",
     "theme_color": "#f3ebbd",
     "background_color": "#f7cc64",
