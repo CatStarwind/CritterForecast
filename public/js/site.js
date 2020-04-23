@@ -4,9 +4,7 @@ const timeframe = function(blocks, labels){
 	tf.frameStart = function (hour) {
 		let tfstart = [];
 		blocks.forEach(b => tfstart.push(b[0]));
-
-		//If given hour, check if start, else return all starts.
-		return hour ? tfstart.find(fs => fs === hour) : tfstart;
+		return tfstart.find(fs => fs === hour);
 	};
 
 	tf.currentFrame = function (hour) {
