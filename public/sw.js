@@ -1,4 +1,4 @@
-var CACHE_NAME = 'cf-cache';
+var CACHE_NAME = 'cf-cache-v1';
 var urlsToCache = [
 	'/',
 	'/css/site.css',
@@ -33,8 +33,7 @@ self.addEventListener('activate', function(event) {
 
 self.addEventListener('fetch', function(event) {
 	event.respondWith(
-		caches.match(event.request)
-			.then(function(response) {
+		caches.match(event.request).then(function(response) {
 			// Cache hit - return response
 			if (response) { return response; }
 

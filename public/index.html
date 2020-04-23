@@ -36,6 +36,18 @@
             gtag('js', new Date());
 
             gtag('config', 'UA-164310423-1');
+        </script>
+        
+        <script src="js/jquery.min.js" defer></script>
+        <script src="js/luxon.min.js" defer></script>
+        <script src="js/site.js" defer></script>
+        <script>
+            //Highway to the Time Zone
+            if (!localStorage.getItem("tz") || !localStorage.getItem("hemi")) {
+                //Ridin' into the Time Zone
+                localStorage.setItem("tz", Intl.DateTimeFormat().resolvedOptions().timeZone || "Etc/UTC");
+                localStorage.setItem("hemi", "North");
+            };
 
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
@@ -48,18 +60,6 @@
                     });
                 });
             }
-        </script>
-        <script src="js/jquery.min.js" defer></script>
-        <script src="js/luxon.min.js" defer></script>
-        <script src="js/site.js" defer></script>
-        <script>
-            //Highway to the Time Zone
-            if (!localStorage.getItem("tz") || !localStorage.getItem("hemi")) {
-                //Ridin' into the Time Zone
-                localStorage.setItem("tz", Intl.DateTimeFormat().resolvedOptions().timeZone || "Etc/UTC");
-                localStorage.setItem("hemi", "North");
-                location.reload(); //LANA
-            };
         </script>
     </head>
     <body>
