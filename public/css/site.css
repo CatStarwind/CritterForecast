@@ -3,6 +3,8 @@ html {
   font-size: 14px;
   background: #f3ebbd;
   background-image: url("/img/critters.png");
+  background-position-x: -18px;
+  background-attachment: fixed;
 }
 body { font-family: 'Varela Round', sans-serif; text-align:center;}
 

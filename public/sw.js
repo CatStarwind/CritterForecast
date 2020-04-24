@@ -1,6 +1,7 @@
 var CACHE_NAME = 'cf-cache-v1';
 var urlsToCache = [
 	'/',
+	'https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Varela+Round&display=swap',
 	'/css/site.css',
 	'/js/jquery.min.js',
 	'/js/luxon.min.js',

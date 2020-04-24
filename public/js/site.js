@@ -61,9 +61,7 @@ const cf = {
 	},
 	createTable: function (critter) {
 		let id = "#" + critter;
-		let url = critter.toLowerCase();
-		url += "?tz="+Intl.DateTimeFormat().resolvedOptions().timeZone;
-		url += "&hemi=" + localStorage.getItem("hemi");
+		let url = critter.toLowerCase() + "?tz=" + localStorage.getItem("tz") + "&hemi=" + localStorage.getItem("hemi");
 		
 		$.getJSON(url, function(data){
 			$("tbody", id).empty(); //Reset
@@ -96,8 +94,7 @@ const cf = {
 	},
 	switchHemi: function() {
 		localStorage.setItem("hemi", localStorage.getItem("hemi") === "North" ? "South" : "North");
-
-		$(".hemisphere").attr("src", `/img/hemi_${localStorage.getItem("hemi").toLowerCase()}.png`);
+		this.initHemi();
 		for(var tf in timeframes) { cf.createTable(tf); }
 	},
 	init: function() {
@@ -107,12 +104,12 @@ const cf = {
 		this.initHemi();
 		for(var tf in timeframes) { this.createTable(tf); }
 		$("#acClock").addClass(timeframes.Insect.currentFrame(dt.hour).toLowerCase()).attr("title", localStorage.getItem("tz"));
+		$(".hemisphere").click(cf.switchHemi);
 	}
 };
 
 $(function() {
 	cf.init();
-	$(".hemisphere").click(cf.switchHemi);
 	
 	cf.tick = window.setInterval(function () {
 		cf.updateClock(luxon.DateTime.local());
