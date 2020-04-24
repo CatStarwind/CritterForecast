@@ -5,8 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Removed
-- API for critter availability.
+### Changed 
+- Merge critter routers into single handler.
+
+## [1.4.1]
+### Changed
+- Site no longer redirects.
+- Minor meta and visual tweaks.
+### Fixed
+- Service work no longer caches all requests.
 
 ## [1.4.0]
 ### Added
