@@ -7,6 +7,9 @@ html {
   background-attachment: fixed;
 }
 body { font-family: 'Varela Round', sans-serif; text-align:center;}
+a { color:#43abb4; transition: 0.2s all; }
+a:hover {color: #24d5e6; }
+
 
 .dashboard { padding: 1em 0; display: flex;  flex-wrap: wrap; justify-content: space-evenly; align-items: center; margin:auto; max-width:800px; }
 
