@@ -65,16 +65,17 @@ const cf = {
 		
 		$.getJSON(url, function(data){
 			$("tbody", id).empty(); //Reset
+			let col = data.shift();
 
 			data.forEach(critter => {
 				let $row = $("<tr>");
-				if (critter.TLC) { $row.addClass("lastchanceTime"); }
-				if (critter.MLC) { $row.addClass("lastchanceMonth"); }
+				if (critter[col.TLC]) { $row.addClass("lastchanceTime"); }
+				if (critter[col.MLC]) { $row.addClass("lastchanceMonth"); }
 
-				$("<td>").text(critter.Name).appendTo($row);
-				$("<td>").text(critter.Price.toLocaleString()).appendTo($row);
-				$("<td>").text(critter.Location + (critter.Note ? ` (${critter.Note})` : '')).appendTo($row);
-				if(critter.S) { $("<td>").text(critter.S).appendTo($row); }
+				$("<td>").text(critter[col.Name]).appendTo($row);
+				$("<td>").text(critter[col.Price].toLocaleString()).appendTo($row);
+				$("<td>").text(critter[col.Location] + (critter[col.Note] ? ` (${critter[col.Note]})` : '')).appendTo($row);
+				if(critter[col.S]) { $("<td>").text(critter[col.S]).appendTo($row); }
 				
 				$("table", id).append($row);
 			});

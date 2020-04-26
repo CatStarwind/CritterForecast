@@ -14,7 +14,6 @@
     "luxon": "^1.23.0",
     "morgan": "~1.9.1",
     "rotating-file-stream": "^2.0.2",
-    "serve-favicon": "^2.5.0",
-    "sqlite3": "^4.1.1"
+    "serve-favicon": "^2.5.0"
   }
 }
