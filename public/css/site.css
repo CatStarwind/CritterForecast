@@ -16,7 +16,7 @@ a:hover {color: #24d5e6; }
 .legend { order:2; display:table; margin-top: 5px; border-spacing: 0 2px; }
 .legend div { display:table-row; }
 .legend span { display:table-cell; border: 1px solid #f7cc64; border-radius: 15px; }
-.hemisphere {order:1; height:64px; width:64px; cursor: pointer; border-radius: 20px;}
+#hemisphere {order:1; height:64px; width:64px; cursor: pointer; border-radius: 20px;}
 
 .available { display: flex;  flex-wrap: wrap; justify-content: center; }
 .critter {padding: 5px 10px;}
