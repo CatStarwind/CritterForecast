@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Varela+Round&display=swap');
-@media only screen and (max-width: 450px) {
-  td { height: 2.5em; }
+@media only screen and (max-width: 450px) { td { height: 2.5em; } }
+@supports not (background-blend-mode: luminosity) {
+ td.catch { opacity: 0.3; }
+ tr.caught td.catch { opacity: 1; }
 }
 
 html {
@@ -14,7 +16,8 @@ body { font-family: 'Varela Round', sans-serif; text-align:center;}
 a { color:#43abb4; transition: 0.2s all; }
 a:hover {color: #24d5e6; }
 
-.dashboard { padding: 1em 0; display: flex;  flex-wrap: wrap; justify-content: space-evenly; align-items: center; margin:auto; max-width:800px; }
+.dashboard { padding: 1em 0; display: flex;  flex-wrap: wrap; justify-content: space-around; align-items: center; margin:auto; max-width:800px; }
+@supports not (-ms-ime-align: auto) { .dashboard { justify-content: space-evenly } }
 .legend { order:2; display:table; margin-top: 5px; border-spacing: 0 2px; }
 .legend div { display:table-row; }
 .legend span { display:table-cell; border: 1px solid #f7cc64; border-radius: 15px; }
@@ -29,7 +32,7 @@ a:hover {color: #24d5e6; }
 }
 #catchToggle div.insect { clip-path: polygon(0 0, 100% 0, 0 100%); }
 #catchToggle div.fish { clip-path: polygon(100% 100%, 100% 0, 0 100%); }
-div#catchToggle.hide div { background-blend-mode: luminosity; background-color: #f3ebbd; }
+#catchToggle.hide div { background-blend-mode: luminosity; background-color: #f3ebbd; }
 #hemisphere {order:1; height:64px; width:64px; cursor: pointer; border-radius: 20px;}
 
 .available { display: flex;  flex-wrap: wrap; justify-content: center; }
@@ -73,8 +76,7 @@ div#catchToggle.hide div { background-blend-mode: luminosity; background-color: 
 
 /* Available Table */
 table { width:100%; border-spacing: 0px 2px;}
-tbody tr, .legend div { background-color: #f4f8e2; }
-th, td, .legend span { padding: 5px 10px; }
+th, td, .legend span { background-color: #f4f8e2; padding: 5px 10px; }
 th { color: white; background-color: #5a5040; font-weight: bold; text-align: left; letter-spacing: 1px; }
 th:last-child { cursor: help; }
 th:first-child, td:first-child { border-radius: 10px 0 0 10px; }
@@ -89,13 +91,13 @@ table.showCatch td:nth-child(5), table.catch th:nth-child(5) { text-align: cente
 table.hideCatch td:nth-child(2) { text-align:right; }
 table.hideCatch td:nth-child(4), table.nocatch th:nth-child(4) { text-align: center; }
 
-tr.lastchanceTime, div.lastchanceTime { background-color: gold; }
-tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#b50000; }
+.lastchanceTime td, div.lastchanceTime span { background-color: gold; }
+.lastchanceMonth td, div.lastchanceMonth span { font-weight: bolder; color:#b50000; }
 
-td.catch { cursor: pointer; background-size: cover; background-color: #f4f8e2; background-blend-mode: luminosity; }
+td.catch { width: 0.5em; cursor: pointer; background-size: cover; background-color: #f4f8e2; background-blend-mode: luminosity; background-position-y: center; }
 #Fish td.catch, .fish { background-image: url('/img/stampFish.png');}
 #Insect td.catch, .insect {background-image: url('/img/stampInsect.png'); background-position: center;}
-tr.caught { color:lightslategray; }
+tr.caught td { color:lightslategray; }
 tr.caught td.catch { background-blend-mode: unset; }
 
 
@@ -111,6 +113,7 @@ tr.caught td.catch { background-blend-mode: unset; }
 #acClock hr {
   margin: 0;
   border-style: solid;
+  color: white; /* Firefox is trash */
 }
 .time {
   font-size: 2.5em;
