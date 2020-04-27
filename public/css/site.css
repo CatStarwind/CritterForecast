@@ -62,17 +62,39 @@ table { width:100%; border-spacing: 0px 2px;}
 tbody tr, .legend div { background-color: #f4f8e2; }
 th, td, .legend span { padding: 5px 10px; }
 th { color: white; background-color: #5a5040; font-weight: bold; text-align: left; letter-spacing: 1px; }
+th:last-child { cursor: help; }
 th:first-child, td:first-child { border-radius: 10px 0 0 10px; }
 th:last-child, td:last-child { border-radius: 0 10px 10px 0; }
 td { text-align: left; border-top: 1px solid #f7cc64; border-bottom: 1px solid #f7cc64; }
 td:first-child { border-left: 1px solid #f7cc64; }
 td:last-child { border-right: 1px solid #f7cc64; }
 
-td:nth-child(2) { text-align:right; }
-td:nth-child(4), th:nth-child(4) { text-align: center; }
+td:nth-child(3) { text-align:right; }
+td:nth-child(5), th:nth-child(5) { text-align: center; }
 
 tr.lastchanceTime, div.lastchanceTime { background-color: gold; }
 tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#b50000; }
+
+td.catch { cursor: pointer; background-size: cover; background-color: #f4f8e2; background-blend-mode: luminosity; }
+#Fish td.catch, .fish { background-image: url('/img/stampFish.png');}
+#Insect td.catch, .insect {background-image: url('/img/stampInsect.png'); background-position: center;}
+tr.caught { color:lightslategray; }
+tr.caught td.catch { background-blend-mode: unset; }
+#catchToggle { width: 64px; height: 64px; cursor: pointer;}
+#catchToggle div{
+  height: 64px;
+  width: 64px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  border-radius: 20px;
+}
+#catchToggle div.insect {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+#catchToggle div.fish {
+  clip-path: polygon(100% 100%, 100% 0, 0 100%);
+}
 
 /* Clock */
 #acClock {

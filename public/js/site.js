@@ -67,15 +67,17 @@ const cf = {
 			$("tbody", id).empty(); //Reset
 			let col = data.shift();
 
-			data.forEach(critter => {
-				let $row = $("<tr>");
-				if (critter[col.TLC]) { $row.addClass("lastchanceTime"); }
-				if (critter[col.MLC]) { $row.addClass("lastchanceMonth"); }
+			data.forEach(row => {
+				let $row = $("<tr>").attr("id", critter[0]+row[col.ID]);
+				if(critter === "Fish"){ $row.addClass("caught"); }
+				if (row[col.TLC]) { $row.addClass("lastchanceTime"); }
+				if (row[col.MLC]) { $row.addClass("lastchanceMonth"); }
 
-				$("<td>").text(critter[col.Name]).appendTo($row);
-				$("<td>").text(critter[col.Price].toLocaleString()).appendTo($row);
-				$("<td>").text(critter[col.Location] + (critter[col.Note] ? ` (${critter[col.Note]})` : '')).appendTo($row);
-				if(critter[col.S]) { $("<td>").text(critter[col.S]).appendTo($row); }
+				$("<td>").addClass("catch").appendTo($row);
+				$("<td>").text(row[col.Name]).appendTo($row);
+				$("<td>").text(row[col.Price].toLocaleString()).appendTo($row);
+				$("<td>").text(row[col.Location] + (row[col.Note] ? ` (${row[col.Note]})` : '')).appendTo($row);
+				if(row[col.S]) { $("<td>").text(row[col.S]).appendTo($row); }
 				
 				$("table", id).append($row);
 			});
