@@ -81,31 +81,29 @@ const cf = {
 			});
 		});
 	},
-	initHemi: function() {
-		let hemi = localStorage.getItem("hemi");
-
-		$img = $("<img>")
-			.addClass("hemisphere")
-			.attr({
-				src: `/img/hemi_${hemi.toLowerCase()}.png`,
-				alt: hemi + " Hemisphere",
-				title: hemi + " Hemisphere"
-			})
-			.appendTo(".dashboard");
+	setHemi: function(hemi) {
+		$("#hemisphere").attr({
+			src: `/img/hemi_${hemi.toLowerCase()}.png`,
+			alt: hemi + " Hemisphere",
+			title: hemi + " Hemisphere"
+		});
 	},
 	switchHemi: function() {
-		localStorage.setItem("hemi", localStorage.getItem("hemi") === "North" ? "South" : "North");
-		this.initHemi();
+		let hemi = localStorage.getItem("hemi") === "North" ? "South" : "North";
+		
+		localStorage.setItem("hemi", hemi);
+		this.setHemi(hemi);
+		
 		for(var tf in timeframes) { cf.createTable(tf); }
 	},
 	init: function() {
-		let dt = luxon.DateTime.local();	
+		let dt = luxon.DateTime.local();
 		this.updateClock(dt);
 		this.setCurrentTimeFrame(dt.hour);
-		this.initHemi();
+		this.setHemi(localStorage.getItem("hemi"));
 		for(var tf in timeframes) { this.createTable(tf); }
 		$("#acClock").addClass(timeframes.Insect.currentFrame(dt.hour).toLowerCase()).attr("title", localStorage.getItem("tz"));
-		$(".hemisphere").click(cf.switchHemi);
+		$("#hemisphere").click(() => { cf.switchHemi(); });
 	}
 };
 
