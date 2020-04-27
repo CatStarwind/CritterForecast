@@ -48,6 +48,10 @@
                 localStorage.setItem("tz", Intl.DateTimeFormat().resolvedOptions().timeZone || "Etc/UTC");
                 localStorage.setItem("hemi", "North");
             };
+            //Tegridy
+            if(!(/^(?:,?(?:I|F)\d+)*$/g).test(localStorage.getItem("caught"))){
+                localStorage.setItem("caught", "");
+            }
 
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
@@ -69,7 +73,7 @@
                 <hr />
                 <div class="date">January 1 <span>Wed.</span></div>
             </div>
-            <div id="catchToggle">
+            <div id="catchToggle" class="hide" title="Toggle Check Column">
                 <div class="insect"></div>
                 <div class="fish"></div>
             </div>
@@ -93,7 +97,6 @@
                 <table>
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Location</th>
@@ -113,7 +116,6 @@
                 <table>
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Location</th>

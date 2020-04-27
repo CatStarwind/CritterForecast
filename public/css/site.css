@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Varela+Round&display=swap');
+@media only screen and (max-width: 450px) {
+  td { height: 2.5em; }
+}
+
 html {
   font-size: 14px;
   background: #f3ebbd;
@@ -10,12 +14,22 @@ body { font-family: 'Varela Round', sans-serif; text-align:center;}
 a { color:#43abb4; transition: 0.2s all; }
 a:hover {color: #24d5e6; }
 
-
 .dashboard { padding: 1em 0; display: flex;  flex-wrap: wrap; justify-content: space-evenly; align-items: center; margin:auto; max-width:800px; }
-
 .legend { order:2; display:table; margin-top: 5px; border-spacing: 0 2px; }
 .legend div { display:table-row; }
 .legend span { display:table-cell; border: 1px solid #f7cc64; border-radius: 15px; }
+#catchToggle { width: 64px; height: 64px; cursor: pointer;}
+#catchToggle div{
+  height: 64px;
+  width: 64px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  border-radius: 20px;
+}
+#catchToggle div.insect { clip-path: polygon(0 0, 100% 0, 0 100%); }
+#catchToggle div.fish { clip-path: polygon(100% 100%, 100% 0, 0 100%); }
+div#catchToggle.hide div { background-blend-mode: luminosity; background-color: #f3ebbd; }
 #hemisphere {order:1; height:64px; width:64px; cursor: pointer; border-radius: 20px;}
 
 .available { display: flex;  flex-wrap: wrap; justify-content: center; }
@@ -69,8 +83,11 @@ td { text-align: left; border-top: 1px solid #f7cc64; border-bottom: 1px solid #
 td:first-child { border-left: 1px solid #f7cc64; }
 td:last-child { border-right: 1px solid #f7cc64; }
 
-td:nth-child(3) { text-align:right; }
-td:nth-child(5), th:nth-child(5) { text-align: center; }
+table.showCatch td:nth-child(3) { text-align:right; }
+table.showCatch td:nth-child(5), table.catch th:nth-child(5) { text-align: center; }
+
+table.hideCatch td:nth-child(2) { text-align:right; }
+table.hideCatch td:nth-child(4), table.nocatch th:nth-child(4) { text-align: center; }
 
 tr.lastchanceTime, div.lastchanceTime { background-color: gold; }
 tr.lastchanceMonth, .lastchanceMonth { font-weight: bolder; color:#b50000; }
@@ -80,21 +97,7 @@ td.catch { cursor: pointer; background-size: cover; background-color: #f4f8e2; b
 #Insect td.catch, .insect {background-image: url('/img/stampInsect.png'); background-position: center;}
 tr.caught { color:lightslategray; }
 tr.caught td.catch { background-blend-mode: unset; }
-#catchToggle { width: 64px; height: 64px; cursor: pointer;}
-#catchToggle div{
-  height: 64px;
-  width: 64px;
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-  border-radius: 20px;
-}
-#catchToggle div.insect {
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-}
-#catchToggle div.fish {
-  clip-path: polygon(100% 100%, 100% 0, 0 100%);
-}
+
 
 /* Clock */
 #acClock {
@@ -103,6 +106,7 @@ tr.caught td.catch { background-blend-mode: unset; }
   font-weight: bold;
   padding: 0.5em 1em;
   border-radius: 30px;
+  cursor: default;
 }
 #acClock hr {
   margin: 0;

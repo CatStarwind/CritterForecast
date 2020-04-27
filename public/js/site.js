@@ -65,15 +65,14 @@ const cf = {
 		
 		$.getJSON(url, function(data){
 			$("tbody", id).empty(); //Reset
+			$("th.catch", id).remove();
 			let col = data.shift();
-
+			
 			data.forEach(row => {
-				let $row = $("<tr>").attr("id", critter[0]+row[col.ID]);
-				if(critter === "Fish"){ $row.addClass("caught"); }
+				let $row = $("<tr>").attr("id", critter[0] + row[col.ID]);
 				if (row[col.TLC]) { $row.addClass("lastchanceTime"); }
 				if (row[col.MLC]) { $row.addClass("lastchanceMonth"); }
 
-				$("<td>").addClass("catch").appendTo($row);
 				$("<td>").text(row[col.Name]).appendTo($row);
 				$("<td>").text(row[col.Price].toLocaleString()).appendTo($row);
 				$("<td>").text(row[col.Location] + (row[col.Note] ? ` (${row[col.Note]})` : '')).appendTo($row);
@@ -81,6 +80,8 @@ const cf = {
 				
 				$("table", id).append($row);
 			});
+
+			if (cf.caught.disp()) { cf.caught.show(id); }
 		});
 	},
 	setHemi: function(hemi) {
@@ -92,11 +93,54 @@ const cf = {
 	},
 	switchHemi: function() {
 		let hemi = localStorage.getItem("hemi") === "North" ? "South" : "North";
-		
 		localStorage.setItem("hemi", hemi);
 		this.setHemi(hemi);
-		
 		for(var tf in timeframes) { cf.createTable(tf); }
+	},
+	caught: {
+		disp: () => localStorage.getItem("catchDisp") === "false" ? false : true,
+		list: function() {
+			let caught = localStorage.getItem("caught");
+			if(!caught) { return []; }
+			return caught.split(",");
+		},
+		check: id => cf.caught.list().includes(id),
+		show: function(table) {
+			$(table).addClass("showCatch").removeClass("hideCatch");
+			$("thead tr", table).prepend('<th class="catch">');
+			$("tbody tr", table).each((i,el) => {
+				let id = $(el).attr("id");
+				if(this.check(id)) { $(el).addClass("caught"); }
+				$("<td>").addClass("catch").click(cf.caught.critter).prependTo(el);
+			});
+		},
+		toggle: function() {
+			if(!cf.caught.disp()){
+				$("div.critter table").each((i,el) => { cf.caught.show(el); });
+				$("#catchToggle").removeClass("hide");
+				localStorage.setItem("catchDisp", "true");
+			} else {
+				$(".catch").remove();
+				$("div.critter table").addClass("hideCatch").removeClass("showCatch");
+				$("#catchToggle").addClass("hide");
+				$(".caught").removeClass("caught");
+				localStorage.setItem("catchDisp", "false");
+			}
+		},
+		critter: function(e) {
+			let id = $(this).parent("tr").attr("id");
+			let caught = cf.caught.list();
+
+			if(cf.caught.check(id)){
+				caught.splice(caught.indexOf(id), 1)
+				localStorage.setItem("caught", caught);
+				$(this).parent("tr").removeClass("caught");
+			} else {
+				caught.push(id);
+				localStorage.setItem("caught", caught);
+				$(this).parent("tr").addClass("caught");
+			}
+		}
 	},
 	init: function() {
 		let dt = luxon.DateTime.local();
@@ -104,8 +148,11 @@ const cf = {
 		this.setCurrentTimeFrame(dt.hour);
 		this.setHemi(localStorage.getItem("hemi"));
 		for(var tf in timeframes) { this.createTable(tf); }
+
+		$("#catchToggle").toggleClass("hide", !this.caught.disp());
 		$("#acClock").addClass(timeframes.Insect.currentFrame(dt.hour).toLowerCase()).attr("title", localStorage.getItem("tz"));
-		$("#hemisphere").click(() => { cf.switchHemi(); });
+		$("#hemisphere").click(() => cf.switchHemi());
+		$("#catchToggle").click(() => cf.caught.toggle());
 	}
 };
 
