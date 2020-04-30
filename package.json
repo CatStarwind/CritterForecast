@@ -13,7 +13,7 @@
     "http-errors": "~1.6.3",
     "luxon": "^1.23.0",
     "morgan": "~1.9.1",
-    "rotating-file-stream": "^2.0.2",
+    "rotating-file-stream": "^2.1.0",
     "serve-favicon": "^2.5.0"
   }
 }
