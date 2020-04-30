@@ -78,7 +78,7 @@ a:hover {color: #24d5e6; }
 table { width:100%; border-spacing: 0px 2px;}
 th, td, .legend span { background-color: #f4f8e2; padding: 5px 10px; }
 th { color: white; background-color: #5a5040; font-weight: bold; text-align: left; letter-spacing: 1px; }
-th:last-child { cursor: help; }
+table.hideCatch th:nth-child(4), table.showCatch th:nth-child(5) { cursor: help; }
 th:first-child, td:first-child { border-radius: 10px 0 0 10px; }
 th:last-child, td:last-child { border-radius: 0 10px 10px 0; }
 td { text-align: left; border-top: 1px solid #f7cc64; border-bottom: 1px solid #f7cc64; }
